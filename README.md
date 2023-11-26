@@ -1,6 +1,8 @@
 JBehave JUnit Integration
 =========================
 
+![Visit Count](https://profile-counter.glitch.me/TurquoiseSpace_jbehave-junit-runner/count.svg)
+
 [![jbehave-junit-runner CI](https://github.com/TurquoiseSpace/jbehave-junit-runner/actions/workflows/ci.yml/badge.svg)](https://github.com/TurquoiseSpace/jbehave-junit-runner/actions/workflows/ci.yml)
 
 [![Coverage Status](https://coveralls.io/repos/github/TurquoiseSpace/jbehave-junit-runner/badge.svg?branch=master)](https://coveralls.io/github/TurquoiseSpace/jbehave-junit-runner?branch=master)
