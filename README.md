@@ -196,5 +196,4 @@ MIT License
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/TurquoiseSpace/jbehave-junit-runner/master/LICENSE)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FTurquoiseSpace%2Fjbehave-junit-runner.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FTurquoiseSpace%2Fjbehave-junit-runner?ref=badge_shield)
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FTurquoiseSpace%2Fjbehave-junit-runner.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FTurquoiseSpace%2Fjbehave-junit-runner?ref=badge_large)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FTurquoiseSpace%2Fjbehave-junit-runner.svg?type=large&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FTurquoiseSpace%2Fjbehave-junit-runner?ref=badge_large&issueType=license)
