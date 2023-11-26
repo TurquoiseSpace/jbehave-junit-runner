@@ -23,6 +23,14 @@
 		<developer>
 			<name>Prakhar Makhija</name>
 			<email>matcdac@gmail.com</email>
+			<organization>Turquoise Space</organization>
+			<organizationUrl>https://github.com/TurquoiseSpace</organizationUrl>
+		</developer>
+		<developer>
+			<name>Prakhar Makhija</name>
+			<email>prakhar.makhija@ge.com</email>
+			<organization>General Electric</organization>
+			<organizationUrl>https://www.ge.com/</organizationUrl>
 		</developer>
 	</developers>
 
@@ -56,12 +64,12 @@
 
 	<distributionManagement>
 		<snapshotRepository>
-			<id>sonatype-nexus-snapshots</id>
+			<id>ossrh</id>
 			<name>Sonatype Nexus Snapshots</name>
 			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
 		</snapshotRepository>
 		<repository>
-			<id>sonatype-nexus-staging</id>
+			<id>ossrh</id>
 			<name>Nexus Release Repository</name>
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
@@ -76,6 +84,7 @@
 		<apache.maven-compiler-plugin.version>3.11.0</apache.maven-compiler-plugin.version>
 		<apache.maven-source-plugin.version>3.3.0</apache.maven-source-plugin.version>
 		<apache.maven-javadoc-plugin.version>3.6.2</apache.maven-javadoc-plugin.version>
+		<sonatype.plugins.nexus-staging-maven-plugin.version>1.6.13</sonatype.plugins.nexus-staging-maven-plugin.version>
 		<apache.maven-release-plugin.version>3.0.1</apache.maven-release-plugin.version>
 		<apache.maven-surefire-plugin.version>3.2.2</apache.maven-surefire-plugin.version>
 		<apache.maven-gpg-plugin.version>3.1.0</apache.maven-gpg-plugin.version>
@@ -89,7 +98,6 @@
 		<sonar.organization>turquoise-space</sonar.organization>
 		<sonar.projectKey>TurquoiseSpace_jbehave-junit-runner</sonar.projectKey>
 		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-		<sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
 		<sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 		<sonar.sources>src/main</sonar.sources>
 		<sonar.tests>src/test</sonar.tests>
@@ -121,7 +129,21 @@
 					<execution>
 						<id>attach-sources</id>
 						<goals>
-							<goal>jar</goal>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>${apache.maven-gpg-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -140,12 +162,27 @@
 				</executions>
 			</plugin>
 			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>${sonatype.plugins.nexus-staging-maven-plugin.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
 				<version>${apache.maven-release-plugin.version}</version>
 				<configuration>
 					<localCheckout>true</localCheckout>
 					<pushChanges>false</pushChanges>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<useReleaseProfile>false</useReleaseProfile>
+					<releaseProfiles>release</releaseProfiles>
+					<goals>deploy</goals>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -199,6 +236,64 @@
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>${sonarsource.scanner.maven.sonar-maven-plugin.version}</version>
 			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco.jacoco-maven-plugin.version}</version>
+				<executions>
+					<!-- Prepares the property pointing to the JaCoCo
+					runtime agent which is passed as VM argument when Maven the Surefire plugin
+					is executed. pre-unit-test -->
+					<execution>
+						<id>prepare-agent</id>
+						<phase>test-compile</phase>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<!-- Ensures that the code coverage report for
+					unit tests is created after unit tests have been run. post-unit-test -->
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<formats>
+								<format>XML</format>
+							</formats>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<skip>${maven.test.skip}</skip>
+					<destFile>${project.basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
+					<dataFile>${project.basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
+					<output>file</output>
+					<append>true</append>
+					<excludes>
+						<exclude>${sonar.exclusions}</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eluder.coveralls</groupId>
+				<artifactId>coveralls-maven-plugin</artifactId>
+				<version>${eluder.coveralls-maven-plugin.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>javax.xml.bind</groupId>
+						<artifactId>jaxb-api</artifactId>
+						<version>${javax.xml.bind.jaxb-api.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>jakarta.xml.bind</groupId>
+						<artifactId>jakarta.xml.bind-api</artifactId>
+						<version>${jakarta.xml.bind-api.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -230,46 +325,6 @@
 	<profiles>
 		<profile>
 			<id>coverage</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.jacoco</groupId>
-						<artifactId>jacoco-maven-plugin</artifactId>
-						<version>${jacoco.jacoco-maven-plugin.version}</version>
-						<executions>
-							<execution>
-								<id>prepare-agent</id>
-								<phase>test-compile</phase>
-								<goals>
-									<goal>prepare-agent</goal>
-								</goals>
-							</execution>
-							<execution>
-								<id>report</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>report</goal>
-								</goals>
-								<configuration>
-									<formats>
-										<format>XML</format>
-									</formats>
-								</configuration>
-							</execution>
-						</executions>
-						<configuration>
-							<skip>${maven.test.skip}</skip>
-							<destFile>${project.basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
-							<dataFile>${project.basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
-							<output>file</output>
-							<append>true</append>
-							<excludes>
-								<exclude>${sonar.exclusions}</exclude>
-							</excludes>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 		<profile>
 			<id>sonar</id>
@@ -282,24 +337,6 @@
 			<activation>
 				<activeByDefault>false</activeByDefault>
 			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<version>${apache.maven-gpg-plugin.version}</version>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 		<profile>
 			<id>ci</id>
@@ -309,52 +346,6 @@
 					<value>true</value>
 				</property>
 			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.jacoco</groupId>
-						<artifactId>jacoco-maven-plugin</artifactId>
-						<version>${jacoco.jacoco-maven-plugin.version}</version>
-						<executions>
-							<!-- Prepares the property pointing to the JaCoCo
-							runtime agent which is passed as VM argument when Maven the Surefire plugin
-							is executed. -->
-							<execution>
-								<id>pre-unit-test</id>
-								<goals>
-									<goal>prepare-agent</goal>
-								</goals>
-							</execution>
-							<!-- Ensures that the code coverage report for
-							unit tests is created after unit tests have been run. -->
-							<execution>
-								<id>post-unit-test</id>
-								<phase>test</phase>
-								<goals>
-									<goal>report</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.eluder.coveralls</groupId>
-						<artifactId>coveralls-maven-plugin</artifactId>
-						<version>${eluder.coveralls-maven-plugin.version}</version>
-						<dependencies>
-							<dependency>
-								<groupId>javax.xml.bind</groupId>
-								<artifactId>jaxb-api</artifactId>
-								<version>${javax.xml.bind.jaxb-api.version}</version>
-							</dependency>
-							<dependency>
-								<groupId>jakarta.xml.bind</groupId>
-								<artifactId>jakarta.xml.bind-api</artifactId>
-								<version>${jakarta.xml.bind-api.version}</version>
-							</dependency>
-						</dependencies>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 	</profiles>
 

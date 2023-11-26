@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.jbehave.core.ConfigurableEmbedder;
-import org.jbehave.core.condition.StepConditionMatcher;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.embedder.AllStepCandidates;
 import org.jbehave.core.embedder.Embedder;
