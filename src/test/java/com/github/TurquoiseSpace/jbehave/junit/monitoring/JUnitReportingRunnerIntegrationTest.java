@@ -21,7 +21,6 @@ import org.mockito.Mock;
 import com.github.TurquoiseSpace.jbehave.junit.monitoring.story.ExampleScenarioJUnitStories;
 import com.github.TurquoiseSpace.jbehave.junit.monitoring.story.ExampleScenarioJUnitStoriesLocalized;
 import com.github.TurquoiseSpace.jbehave.junit.monitoring.story.ExampleScenarioJUnitStory;
-import com.github.TurquoiseSpace.jbehave.junit.monitoring.JUnitReportingRunner;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
@@ -83,7 +82,7 @@ public class JUnitReportingRunnerIntegrationTest {
 			System.out.println("verified start " + displayName);
 		}
 		for (Description child : description.getChildren()) {
-			verifyAllChildDescriptionsFired(child, false);
+			verifyAllChildDescriptionsFired(child, true);
 		}
 		if (!onlyChildren && considerStepForVerification(description)) {
 			verify(notifier).fireTestFinished(description);
