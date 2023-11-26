@@ -79,10 +79,25 @@
 		<apache.maven-release-plugin.version>3.0.1</apache.maven-release-plugin.version>
 		<apache.maven-surefire-plugin.version>3.2.2</apache.maven-surefire-plugin.version>
 		<apache.maven-gpg-plugin.version>3.1.0</apache.maven-gpg-plugin.version>
+		<sonarsource.scanner.maven.sonar-maven-plugin.version>3.10.0.2594</sonarsource.scanner.maven.sonar-maven-plugin.version>
 		<jacoco.jacoco-maven-plugin.version>0.8.11</jacoco.jacoco-maven-plugin.version>
 		<eluder.coveralls-maven-plugin.version>4.3.0</eluder.coveralls-maven-plugin.version>
+		<javax.xml.bind.jaxb-api.version>2.3.1</javax.xml.bind.jaxb-api.version>
 		<jakarta.xml.bind-api.version>4.0.1</jakarta.xml.bind-api.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.organization>turquoise-space</sonar.organization>
+		<sonar.projectKey>TurquoiseSpace_jbehave-junit-runner</sonar.projectKey>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
+		<sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+		<sonar.sources>src/main</sonar.sources>
+		<sonar.tests>src/test</sonar.tests>
+		<sonar.tests.inclusions>src/test/**</sonar.tests.inclusions>
+		<sonar.exclusions>target/**</sonar.exclusions>
+		<maven.test.skip>false</maven.test.skip>
+		<sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+		<sonar.scm.exclusions.disabled>true</sonar.scm.exclusions.disabled>
 	</properties>
 
 	<build>
@@ -179,6 +194,11 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>${sonarsource.scanner.maven.sonar-maven-plugin.version}</version>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -208,6 +228,55 @@
 	</dependencies>
 
 	<profiles>
+		<profile>
+			<id>coverage</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<version>${jacoco.jacoco-maven-plugin.version}</version>
+						<executions>
+							<execution>
+								<id>prepare-agent</id>
+								<phase>test-compile</phase>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>report</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>report</goal>
+								</goals>
+								<configuration>
+									<formats>
+										<format>XML</format>
+									</formats>
+								</configuration>
+							</execution>
+						</executions>
+						<configuration>
+							<skip>${maven.test.skip}</skip>
+							<destFile>${project.basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
+							<dataFile>${project.basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
+							<output>file</output>
+							<append>true</append>
+							<excludes>
+								<exclude>${sonar.exclusions}</exclude>
+							</excludes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>sonar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
 		<profile>
 			<id>sign-artifacts</id>
 			<activation>
@@ -272,6 +341,11 @@
 						<artifactId>coveralls-maven-plugin</artifactId>
 						<version>${eluder.coveralls-maven-plugin.version}</version>
 						<dependencies>
+							<dependency>
+								<groupId>javax.xml.bind</groupId>
+								<artifactId>jaxb-api</artifactId>
+								<version>${javax.xml.bind.jaxb-api.version}</version>
+							</dependency>
 							<dependency>
 								<groupId>jakarta.xml.bind</groupId>
 								<artifactId>jakarta.xml.bind-api</artifactId>
