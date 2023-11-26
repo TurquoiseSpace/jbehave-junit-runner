@@ -84,6 +84,7 @@
 		<apache.maven-compiler-plugin.version>3.11.0</apache.maven-compiler-plugin.version>
 		<apache.maven-source-plugin.version>3.3.0</apache.maven-source-plugin.version>
 		<apache.maven-javadoc-plugin.version>3.6.2</apache.maven-javadoc-plugin.version>
+		<sonatype.plugins.nexus-staging-maven-plugin.version>1.6.13</sonatype.plugins.nexus-staging-maven-plugin.version>
 		<apache.maven-release-plugin.version>3.0.1</apache.maven-release-plugin.version>
 		<apache.maven-surefire-plugin.version>3.2.2</apache.maven-surefire-plugin.version>
 		<apache.maven-gpg-plugin.version>3.1.0</apache.maven-gpg-plugin.version>
@@ -165,7 +166,7 @@
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>${nexus.staging.maven.plugin.version}</version>
+				<version>${sonatype.plugins.nexus-staging-maven-plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
 					<serverId>ossrh</serverId>
@@ -256,7 +257,6 @@
 					unit tests is created after unit tests have been run. post-unit-test -->
 					<execution>
 						<id>report</id>
-						<phase>verify</phase>
 						<phase>test</phase>
 						<goals>
 							<goal>report</goal>
