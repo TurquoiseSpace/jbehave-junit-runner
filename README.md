@@ -1,14 +1,26 @@
 JBehave JUnit Integration
 =========================
-[![jbehave-junit-runner CI](https://github.com/valfirst/jbehave-junit-runner/actions/workflows/ci.yml/badge.svg)](https://github.com/valfirst/jbehave-junit-runner/actions/workflows/ci.yml)
-[![Coverage Status](https://coveralls.io/repos/github/valfirst/jbehave-junit-runner/badge.svg?branch=master)](https://coveralls.io/github/valfirst/jbehave-junit-runner?branch=master)
-[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=com.github.valfirst%3Ajbehave-junit-runner&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=com.github.valfirst%3Ajbehave-junit-runner)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d81f58136aa245668240b7d851a54d50)](https://www.codacy.com/gh/valfirst/jbehave-junit-runner/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=valfirst/jbehave-junit-runner&amp;utm_campaign=Badge_Grade)
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.valfirst/jbehave-junit-runner.svg)](https://central.sonatype.com/search?q=jbehave-junit-runner&namespace=com.github.valfirst)
-[![Javadocs](http://www.javadoc.io/badge/com.github.valfirst/jbehave-junit-runner.svg)](http://www.javadoc.io/doc/com.github.valfirst/jbehave-junit-runner)
-[![Known Vulnerabilities](https://snyk.io/test/github/valfirst/jbehave-junit-runner/badge.svg?targetFile=pom.xml)](https://snyk.io/test/github/valfirst/jbehave-junit-runner?targetFile=pom.xml)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/valfirst/jbehave-junit-runner/master/LICENSE)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvalfirst%2Fjbehave-junit-runner.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvalfirst%2Fjbehave-junit-runner?ref=badge_shield)
+
+![Visit Count](https://profile-counter.glitch.me/TurquoiseSpace_jbehave-junit-runner/count.svg)
+
+[![Java Doc](https://javadoc.io/badge2/com.github.TurquoiseSpace/jbehave-junit-runner/javadoc.svg)](https://javadoc.io/doc/com.github.TurquoiseSpace/jbehave-junit-runner)
+[![GitHub (All Releases)](https://img.shields.io/github/downloads/TurquoiseSpace/jbehave-junit-runner/total?color=blue)](https://repo1.maven.org/maven2/com/github/TurquoiseSpace/jbehave-junit-runner/)
+[![GitHub (Latest Release)](https://img.shields.io/github/downloads/TurquoiseSpace/jbehave-junit-runner/3.0.0/total)](https://repo1.maven.org/maven2/com/github/TurquoiseSpace/jbehave-junit-runner/3.0.0/)
+
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.TurquoiseSpace/jbehave-junit-runner.svg?label=Maven%20Central)](https://repo1.maven.org/maven2/com/github/TurquoiseSpace/jbehave-junit-runner/)
+[![Sonatype Central Search](https://img.shields.io/maven-central/v/com.github.TurquoiseSpace/jbehave-junit-runner.svg?label=Sonatype%20Central%20Search)](https://central.sonatype.com/search?q=jbehave-junit-runner&namespace=com.github.TurquoiseSpace)
+[![Sonatype Central Artifact](https://img.shields.io/maven-central/v/com.github.TurquoiseSpace/jbehave-junit-runner.svg?label=Sonatype%20Central%20Artifact)](https://central.sonatype.com/artifact/com.github.TurquoiseSpace/jbehave-junit-runner)
+[![MVN Repository](https://img.shields.io/maven-central/v/com.github.TurquoiseSpace/jbehave-junit-runner.svg?label=MVN%20Repository)]([https://repo1.maven.org/maven2/com/github/TurquoiseSpace/jbehave-junit-runner/](https://mvnrepository.com/artifact/com.github.TurquoiseSpace/jbehave-junit-runner))
+
+[![jbehave-junit-runner CI](https://github.com/TurquoiseSpace/jbehave-junit-runner/actions/workflows/ci.yml/badge.svg)](https://github.com/TurquoiseSpace/jbehave-junit-runner/actions/workflows/ci.yml)
+[![Coverage Status](https://coveralls.io/repos/github/TurquoiseSpace/jbehave-junit-runner/badge.svg?branch=master)](https://coveralls.io/github/TurquoiseSpace/jbehave-junit-runner?branch=master)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d81f58136aa245668240b7d851a54d50)](https://www.codacy.com/gh/TurquoiseSpace/jbehave-junit-runner/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TurquoiseSpace/jbehave-junit-runner&amp;utm_campaign=Badge_Grade)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=TurquoiseSpace_jbehave-junit-runner&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=TurquoiseSpace_jbehave-junit-runner)
+[![Known Vulnerabilities](https://snyk.io/test/github/TurquoiseSpace/jbehave-junit-runner/badge.svg?targetFile=pom.xml)](https://snyk.io/test/github/TurquoiseSpace/jbehave-junit-runner?targetFile=pom.xml)
+
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/TurquoiseSpace/jbehave-junit-runner/master/LICENSE)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FTurquoiseSpace%2Fjbehave-junit-runner.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FTurquoiseSpace%2Fjbehave-junit-runner?ref=badge_shield&issueType=license)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FTurquoiseSpace%2Fjbehave-junit-runner.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2FTurquoiseSpace%2Fjbehave-junit-runner?ref=badge_small)
 
 
 This little project is designed to make JBehave
@@ -22,6 +34,15 @@ The project consists of only a handful of classes
 and is easy to use.
 
 
+Using Java
+-------------------
+Minimum JDK / Java SE Support : 11
+Compiled as Class File Major Version : 55
+
+Refer the Table
+https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-4.html#jvms-4.1-200-B.2
+
+
 Using Maven
 -------------------
 The easiest way is to include
@@ -31,18 +52,18 @@ all available from Maven Central.
 
 ```xml
 <dependency>
-    <groupId>com.github.valfirst</groupId>
+    <groupId>com.github.TurquoiseSpace</groupId>
     <artifactId>jbehave-junit-runner</artifactId>
-    <version>2.3.2</version>
+    <version>3.0.0</version>
 </dependency>
 ```
 
-Note that the JBehave library is set to scope `provided`
-in the POM, because any project using this Runner will
-naturally have their own version of JBehave already.
+Note that the JBehave library is NOT set to scope `provided` in the POM
+different from earlier versions published under valfirst/jbehave-junit-runner
+because any project using this Runner will naturally have their own version of JBehave already.
 
 Current development SNAPSHOT versions are available from
-[Sonatype's Nexus for Open Source projects](https://oss.sonatype.org/content/repositories/snapshots/com/github/valfirst/jbehave-junit-runner/).
+[Sonatype's Nexus for Open Source projects](https://oss.sonatype.org/content/repositories/snapshots/com/github/TurquoiseSpace/jbehave-junit-runner/).
 
 Without Maven
 ---------------------
@@ -52,10 +73,15 @@ add the library to your classpath.
 Also make sure you add the dependencies of this library to the classpath as well. They can be
 seen in the `pom.xml`. For convenience, they are listed here, too:
 
-  * jbehave-core (4.1+)
-  * junit (4.12)
+  * jbehave-core (5.2.0)
+  * junit (5.10.1)
 
-Your project will of course have JBehave already, just make sure it is version 4.1 or above.
+Below dependencies are set with test scope
+
+  * mockito (5.7.0)
+  * hamcrest (2.2)
+
+Your project will of course have JBehave already, just make sure it is version 5.2.0 or above.
 
 
 Usage
@@ -182,4 +208,10 @@ This project is based on the original implementation by Mark Burnett, located at
 
 
 ## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvalfirst%2Fjbehave-junit-runner.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvalfirst%2Fjbehave-junit-runner?ref=badge_large)
+
+MIT License
+
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/TurquoiseSpace/jbehave-junit-runner/master/LICENSE)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FTurquoiseSpace%2Fjbehave-junit-runner.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FTurquoiseSpace%2Fjbehave-junit-runner?ref=badge_shield)
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FTurquoiseSpace%2Fjbehave-junit-runner.svg?type=large&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FTurquoiseSpace%2Fjbehave-junit-runner?ref=badge_large&issueType=license)
