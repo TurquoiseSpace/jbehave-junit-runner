@@ -5,10 +5,12 @@ on:
     branches:
     - master
     - TurquoiseSpace
+    - 3.0.0
   pull_request:
     branches:
     - master
     - TurquoiseSpace
+    - 3.0.0
 
 jobs:
   build:
