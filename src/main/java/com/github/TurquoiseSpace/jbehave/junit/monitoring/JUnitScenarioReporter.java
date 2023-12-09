@@ -363,7 +363,7 @@ public class JUnitScenarioReporter extends NullStoryReporter {
 		this.pendingStepStrategy = pendingStepStrategy;
 	}
 
-	@Overrider
+	@Override
 	protected void finalize() throws Throwable {
 		try {
 			this.testState.remove();
