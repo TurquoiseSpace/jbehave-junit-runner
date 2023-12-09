@@ -15,7 +15,7 @@ JBehave JUnit Integration
 [![jbehave-junit-runner CI](https://github.com/TurquoiseSpace/jbehave-junit-runner/actions/workflows/ci.yml/badge.svg)](https://github.com/TurquoiseSpace/jbehave-junit-runner/actions/workflows/ci.yml)
 [![Coverage Status](https://coveralls.io/repos/github/TurquoiseSpace/jbehave-junit-runner/badge.svg?branch=master)](https://coveralls.io/github/TurquoiseSpace/jbehave-junit-runner?branch=master)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d81f58136aa245668240b7d851a54d50)](https://www.codacy.com/gh/TurquoiseSpace/jbehave-junit-runner/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TurquoiseSpace/jbehave-junit-runner&amp;utm_campaign=Badge_Grade)
-[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=TurquoiseSpace_jbehave-junit-runner&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=TurquoiseSpace_jbehave-junit-runner)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=TurquoiseSpace_jbehave-junit-runner&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=TurquoiseSpace_jbehave-junit-runner&branch=3.0.0)
 [![Known Vulnerabilities](https://snyk.io/test/github/TurquoiseSpace/jbehave-junit-runner/badge.svg?targetFile=pom.xml)](https://snyk.io/test/github/TurquoiseSpace/jbehave-junit-runner?targetFile=pom.xml)
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/TurquoiseSpace/jbehave-junit-runner/master/LICENSE)
