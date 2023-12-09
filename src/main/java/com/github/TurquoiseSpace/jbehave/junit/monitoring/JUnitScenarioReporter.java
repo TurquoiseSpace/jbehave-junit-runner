@@ -27,6 +27,7 @@ import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunNotifier;
 
 public class JUnitScenarioReporter extends NullStoryReporter {
+
 	private final RunNotifier notifier;
 
 	private final Description rootDescription;
@@ -362,6 +363,15 @@ public class JUnitScenarioReporter extends NullStoryReporter {
 		this.pendingStepStrategy = pendingStepStrategy;
 	}
 
+	@Overrider
+	protected void finalize() throws Throwable {
+		try {
+			this.testState.remove();
+		} finally {
+			super.finalize();
+		}
+	}
+
 	private class TestState {
 		private Description currentStep;
 		private StepStatus currentStepStatus;
@@ -418,4 +428,5 @@ public class JUnitScenarioReporter extends NullStoryReporter {
 	private enum StepStatus {
 		STARTED, FINISHED
 	}
+
 }
