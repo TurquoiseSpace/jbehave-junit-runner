@@ -6,11 +6,7 @@ on:
   pull_request:
     branches: [ "master", "TurquoiseSpace" ]
   schedule:
-    # Pattern for Cron is [Minute] [Hour] [Day of Month] [Month] [Day of Week (where 0 is Sunday)]
-    # Everyday at midnight
     - cron: "0 0 * * *"
-    # At 23:12 on every Thursday
-    #- cron: "12 23 * * 4"
 
 jobs:
   analyze:
