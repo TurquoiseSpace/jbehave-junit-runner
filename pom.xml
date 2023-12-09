@@ -83,7 +83,7 @@
 		<hamcrest.version>2.2</hamcrest.version>
 		<apache.maven-compiler-plugin.version>3.11.0</apache.maven-compiler-plugin.version>
 		<apache.maven-source-plugin.version>3.3.0</apache.maven-source-plugin.version>
-		<apache.maven-javadoc-plugin.version>3.6.2</apache.maven-javadoc-plugin.version>
+		<apache.maven-javadoc-plugin.version>3.6.3</apache.maven-javadoc-plugin.version>
 		<sonatype.plugins.nexus-staging-maven-plugin.version>1.6.13</sonatype.plugins.nexus-staging-maven-plugin.version>
 		<apache.maven-release-plugin.version>3.0.1</apache.maven-release-plugin.version>
 		<apache.maven-surefire-plugin.version>3.2.2</apache.maven-surefire-plugin.version>
