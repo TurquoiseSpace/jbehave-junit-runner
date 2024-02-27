@@ -78,7 +78,7 @@
 	<properties>
 		<jdk.version>11</jdk.version>
 		<jbehave.version>5.2.0</jbehave.version>
-		<junit.version>5.10.1</junit.version>
+		<junit.version>5.10.2</junit.version>
 		<mockito.version>5.7.0</mockito.version>
 		<hamcrest.version>2.2</hamcrest.version>
 		<apache.maven-compiler-plugin.version>3.11.0</apache.maven-compiler-plugin.version>
